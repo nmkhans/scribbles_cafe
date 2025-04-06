@@ -1,15 +1,10 @@
 import React, { Suspense } from "react";
 import Blogs from "../Blogs/Blogs";
+import Spinner from "../Spinner/Spinner";
 
 const BlogsContainer = () => {
   return (
-    <Suspense
-      fallback={
-        <div className="text-center py-[50px]">
-          <span className="loading loading-spinner loading-xl text-primary"></span>
-        </div>
-      }
-    >
+    <Suspense fallback={<Spinner />}>
       <Blogs />
     </Suspense>
   );

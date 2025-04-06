@@ -8,9 +8,9 @@ const Blogs = () => {
   console.log(blogs);
 
   return (
-    <main className="py-[50px]">
-      <div className="container mx-auto">blogs here {blogs.length}</div>
-    </main>
+    <article className="basis-[70%]">
+      <div className="">blogs here {blogs.length}</div>
+    </article>
   );
 };
 

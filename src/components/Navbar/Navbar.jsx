@@ -1,18 +1,21 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ handleSearch }) => {
   return (
     <header>
       <div className="navbar bg-base-100 shadow-sm">
         <div className="container mx-auto flex items-center">
           <div className="flex-1">
-            <a className="text-xl font-bold" href="#">Scribbles Cafe</a>
+            <a className="text-xl font-bold" href="#">
+              Scribbles Cafe
+            </a>
           </div>
           <div className="flex gap-2">
             <input
               type="text"
               placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
+              onChange={(e) => handleSearch(e.target.value)}
             />
             <div className="dropdown dropdown-end">
               <div
