@@ -3,8 +3,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState("");
-  
 
   const handleSearch = (searchText) => {
     setSearch(searchText);

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa6";
+import { saveToLocalStorage } from "../../utils/localstorage";
 
 const Blog = ({
   blog,
@@ -22,6 +23,11 @@ const Blog = ({
   const bookMarked = bookMarks?.find(
     (bookMark) => bookMark.id === id
   );
+
+  const handleBookMarkClick = () => {
+    handleBookMark(blog);
+    saveToLocalStorage(blog.id);
+  };
 
   return (
     <div className="card shadow-sm">
@@ -46,7 +52,7 @@ const Blog = ({
               {reading_time} Minutes read
             </p>
             <button
-              onClick={() => handleBookMark(blog)}
+              onClick={handleBookMarkClick}
               className="cursor-pointer"
             >
               {bookMarked ? (
@@ -71,7 +77,10 @@ const Blog = ({
               </span>
             );
           })}
-          <button onClick={() => handleMarkAsRead(id)} className="block text-[#6047EC] underline font-medium mt-2 text-base cursor-pointer">
+          <button
+            onClick={() => handleMarkAsRead(id)}
+            className="block text-[#6047EC] underline font-medium mt-2 text-base cursor-pointer"
+          >
             Mark as read
           </button>
         </div>
