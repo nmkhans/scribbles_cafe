@@ -2,10 +2,10 @@ import React, { Suspense } from "react";
 import Blogs from "../Blogs/Blogs";
 import Spinner from "../Spinner/Spinner";
 
-const BlogsContainer = () => {
+const BlogsContainer = ({ bookMarks, handleBookMark }) => {
   return (
     <Suspense fallback={<Spinner />}>
-      <Blogs />
+      <Blogs bookMarks={bookMarks} handleBookMark={handleBookMark} />
     </Suspense>
   );
 };

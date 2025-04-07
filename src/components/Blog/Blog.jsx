@@ -1,6 +1,8 @@
 import React from "react";
+import { FaRegBookmark } from "react-icons/fa6";
+import { FaBookmark } from "react-icons/fa6";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, bookMarks, handleBookMark }) => {
   const {
     id,
     title,
@@ -11,6 +13,10 @@ const Blog = ({ blog }) => {
     reading_time,
     hashtags,
   } = blog;
+
+  const bookMarked = bookMarks?.find(
+    (bookMark) => bookMark.id === id
+  );
 
   return (
     <div className="card shadow-sm">
@@ -34,7 +40,16 @@ const Blog = ({ blog }) => {
             <p className="text-[#111]/60">
               {reading_time} Minutes read
             </p>
-            <button>book mark</button>
+            <button
+              onClick={() => handleBookMark(blog)}
+              className="cursor-pointer"
+            >
+              {bookMarked ? (
+                <FaBookmark size={19} />
+              ) : (
+                <FaRegBookmark size={19} />
+              )}
+            </button>
           </div>
         </div>
         <h2 className="card-title text-3xl font-bold my-3">

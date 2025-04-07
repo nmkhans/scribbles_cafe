@@ -4,6 +4,7 @@ import Main from "./components/Main/Main";
 
 function App() {
   const [search, setSearch] = useState("");
+  
 
   const handleSearch = (searchText) => {
     setSearch(searchText);
