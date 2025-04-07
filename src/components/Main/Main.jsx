@@ -4,9 +4,18 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const Main = () => {
   const [bookMarks, setBookMarks] = useState([]);
+  const [readingTime, setReadingTime] = useState(0);
 
   const handleBookMark = (blog) => {
+    setReadingTime(readingTime + blog.reading_time);
     setBookMarks([...bookMarks, blog]);
+  };
+
+  const handleMarkAsRead = (blogId) => {
+    const filteredBookMarks = bookMarks.filter(
+      (bookmark) => bookmark.id !== blogId
+    );
+    setBookMarks(filteredBookMarks);
   };
 
   return (
@@ -16,8 +25,9 @@ const Main = () => {
           <BlogsContainer
             bookMarks={bookMarks}
             handleBookMark={handleBookMark}
+            handleMarkAsRead={handleMarkAsRead}
           />
-          <Sidebar bookMarks={bookMarks} />
+          <Sidebar bookMarks={bookMarks} readingTime={readingTime} />
         </div>
       </div>
     </main>

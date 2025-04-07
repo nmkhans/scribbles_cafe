@@ -4,11 +4,11 @@ import Blog from "../Blog/Blog";
 
 const blogsPromise = getBlogs();
 
-const Blogs = ({ bookMarks, handleBookMark }) => {
+const Blogs = ({ bookMarks, handleBookMark, handleMarkAsRead }) => {
   const blogs = use(blogsPromise);
 
   return (
-    <article className="basis-[70%]">
+    <article className="grow-1">
       <div className="space-y-5">
         {blogs.map((blog) => (
           <Blog
@@ -16,6 +16,7 @@ const Blogs = ({ bookMarks, handleBookMark }) => {
             blog={blog}
             bookMarks={bookMarks}
             handleBookMark={handleBookMark}
+            handleMarkAsRead={handleMarkAsRead}
           />
         ))}
       </div>

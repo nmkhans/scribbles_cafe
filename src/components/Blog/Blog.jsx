@@ -2,7 +2,12 @@ import React from "react";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa6";
 
-const Blog = ({ blog, bookMarks, handleBookMark }) => {
+const Blog = ({
+  blog,
+  bookMarks,
+  handleBookMark,
+  handleMarkAsRead,
+}) => {
   const {
     id,
     title,
@@ -66,7 +71,7 @@ const Blog = ({ blog, bookMarks, handleBookMark }) => {
               </span>
             );
           })}
-          <button className="block text-[#6047EC] underline font-medium mt-2 text-base cursor-pointer">
+          <button onClick={() => handleMarkAsRead(id)} className="block text-[#6047EC] underline font-medium mt-2 text-base cursor-pointer">
             Mark as read
           </button>
         </div>
