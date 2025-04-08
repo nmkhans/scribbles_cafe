@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SearchContext } from "../../context/SearchProvider";
 
-const Navbar = ({ handleSearch }) => {
+const Navbar = () => {
+  const { setSearch } = useContext(SearchContext);
+  
   return (
     <header>
       <div className="navbar bg-base-100 shadow-sm">
@@ -15,7 +18,7 @@ const Navbar = ({ handleSearch }) => {
               type="text"
               placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
             />
             <div className="dropdown dropdown-end">
               <div

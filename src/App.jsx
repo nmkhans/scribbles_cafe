@@ -1,19 +1,17 @@
-import { useState } from "react";
+import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
+import SearchProvider from "./context/SearchProvider";
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (searchText) => {
-    setSearch(searchText);
-  };
-
   return (
     <>
-      <Navbar handleSearch={handleSearch} />
-      <Main />
+      <SearchProvider>
+        <>
+          <Navbar />
+          <Main />
+        </>
+      </SearchProvider>
     </>
   );
 }

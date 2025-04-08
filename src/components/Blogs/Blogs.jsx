@@ -1,14 +1,22 @@
-import React, { use } from "react";
+import React, { use, useContext } from "react";
 import { getBlogs } from "../../fetchers/getBlogs";
 import Blog from "../Blog/Blog";
+import { SearchContext } from "../../context/SearchProvider";
 
 const blogsPromise = getBlogs();
 
 const Blogs = ({ bookMarks, handleBookMark, handleMarkAsRead }) => {
-  const blogs = use(blogsPromise);
+  let blogs = use(blogsPromise);
+  const { search } = useContext(SearchContext);
+
+  blogs = blogs.filter((blog) => {
+    if (blog.title.toLowerCase().includes(search)) {
+      return true;
+    }
+  });
 
   return (
-    <article className="grow-1">
+    <article className="basis-[70%]">
       <div className="space-y-5">
         {blogs.map((blog) => (
           <Blog

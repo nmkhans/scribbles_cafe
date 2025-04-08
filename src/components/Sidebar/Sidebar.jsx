@@ -3,7 +3,7 @@ import React from "react";
 const Sidebar = ({ bookMarks, readingTime }) => {
 
   return (
-    <aside className="basis-[40%]">
+    <aside className="basis-[30%]">
       <div className="bg-[#6047EC]/10 border border-[#6047EC] p-5 rounded-lg text-center mb-5">
         <h3 className="text-[#6047EC] font-bold text-lg ">
           Spent time on reading: {readingTime} min
